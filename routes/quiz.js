@@ -1,8 +1,19 @@
 const router = require("express").Router();
-const QuizModel = require('../models/question')
+const QuizModel = require('../models/question');
+const updateDB = require('../utils/updateDB');
 
 // middleware for trigger
 const trigger = require('../middleware/trigger')
+const cron = require('node-cron');      // cron job for scheduling...
+
+
+// cron job schedule for keeping the status updated..
+cron.schedule('*/1 * * * *', async () => {
+    // console.log('1 min passed..');
+    await updateDB();
+});
+
+
 
 router.get('/', (req,res) => {
     res.status(200).json({status: "success", msg: "This quiz API"}); 
