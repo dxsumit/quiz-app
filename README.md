@@ -7,6 +7,7 @@ Node.js application that enables users to generate and join quizzes with a time 
   <li> Create an quiz with question and options with start and end time. </li>
   <li> Each quiz will expire after their end time and result can be accessed only after 5min of quiz end. </li>
   <li> Status of each quiz whether its active, inactive or finished is determined automatically with user defined middleware. </li>
+  <li> Cron Job has also been implemented to keep the DB updated. </li>
   <li> Quiz data is stored in MongoDB database. </li>
 </ul>
 
